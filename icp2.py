@@ -15,7 +15,7 @@ print('POS：', nlp.pos_tag(sentence))
 # NER
 print('NER：', nlp.ner(sentence))
 
-co-reference resolution
+# co-reference resolution
 res = nlp.annotate(sentence,
                    properties={
                        'annotators': 'coref',
@@ -23,7 +23,7 @@ res = nlp.annotate(sentence,
                        'timeout': 30000,
                    })
 print(res)
-Sentimental Analysis
+# Sentimental Analysis
 res = nlp.annotate(sentence,
                    properties={
                        'annotators': 'sentiment',
