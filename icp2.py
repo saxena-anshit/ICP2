@@ -1,5 +1,3 @@
-import json
-
 from stanfordcorenlp import StanfordCoreNLP
 
 # java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9000 -timeout 15000
@@ -17,7 +15,7 @@ print('POS：', nlp.pos_tag(sentence))
 # NER
 print('NER：', nlp.ner(sentence))
 
-# coreference resolution
+co-reference resolution
 res = nlp.annotate(sentence,
                    properties={
                        'annotators': 'coref',
@@ -25,7 +23,7 @@ res = nlp.annotate(sentence,
                        'timeout': 30000,
                    })
 print(res)
-# Sentimental Analysis
+Sentimental Analysis
 res = nlp.annotate(sentence,
                    properties={
                        'annotators': 'sentiment',

@@ -19,10 +19,21 @@ pos2 = nltk.pos_tag(token2)
 print(pos1)
 print(pos2)
 
-# # q1 - B) NER
-# ner1 = nltk.ne_chunk(pos1)
-# ner2 = nltk.ne_chunk(pos2)
-#
-# print(ner1)
-# print(ner2)
+# q1 - B) NER
+ner1 = nltk.ne_chunk(pos1)
+ner2 = nltk.ne_chunk(pos2)
 
+print(ner1)
+print(ner2)
+
+# q1 - C) co-reference resolution
+import spacy
+
+nlp = spacy.load('en')
+import neuralcoref
+
+coref = neuralcoref.NeuralCoref(nlp.vocab)
+nlp.add_pipe(coref, name='neuralcoref')
+doc = nlp(t3)
+doc._.has_coref
+doc._.coref_clusters
